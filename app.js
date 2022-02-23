@@ -1,12 +1,8 @@
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
-const modbusRtuLogger = require('./loggers/modbusRtuLogger')
-
 
 const app = express()
-
-setInterval(modbusRtuLogger, 3000)
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
 

@@ -1,8 +1,11 @@
 require('dotenv').config()
 const app = require('../app')
+const modbusRtuLogger = require('../loggers/modbusRtuLogger')
 
 
 const { PORT = 3000 } = process.env
 
 app.listen(PORT)
 console.log(`Server running. Use our API on port: ${PORT}`)
+
+setInterval(modbusRtuLogger, 3000)
