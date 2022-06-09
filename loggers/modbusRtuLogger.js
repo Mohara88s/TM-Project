@@ -1,11 +1,12 @@
 const modbus = require("jsmodbus");
 const SerialPort = require("serialport");
 
-const modbusRtuLogger = async (adres) => {
+const modbusRtuLogger = async ({ adres, comport }) => {
 	const promise = new Promise((resolve, reject) => {
 		const log = []
-		const socket = new SerialPort("COM4", {
-			baudRate: 9600,
+		const comPort = "COM" + comport
+		const socket = new SerialPort(comPort, {
+			// baudRate: 9600,
 			parity: "none",
 			stopbits: 1,
 			dataBits: 8,

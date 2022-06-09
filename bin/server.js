@@ -1,11 +1,21 @@
 require('dotenv').config()
+const substationsOperations = require("../operations/substations")
 const app = require('../app')
-const stationLoger = require('../loggers/stationLoger')
+const substationsHandler = require('./substationsHandler')
 
 const { PORT = 3000 } = process.env
 
-app.listen(PORT)
+
 console.log(`Server running. Use our API on port: ${PORT}`)
 
-setInterval(stationLoger, 2000, 2)
+substationsOperations.listSubstations().then((data) => {
+    app.listen(PORT)
+    console.log('data', data)
+    substationsHandler(data)
+  })
+  .catch(error => {
+    console.log(error.message)
+    process.exit(1)
+  })
+
 

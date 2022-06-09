@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "name": "RU32",
+      "adresses": 2,
+      "comport": 4
+    },
+    {
+      "id": 1,
+      "name": "RUX",
+      "adresses": 1,
+      "comport": 11
+    }
+  ]
